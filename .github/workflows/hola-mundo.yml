@@ -8,6 +8,10 @@ jobs: #Definición de los jobs
       - name: Checkout #Nombre del step
         id: ip #identificador usable dentro del job para otros steps
         uses: actions/checkout@v3
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Definir variable #Segundo step de nombre Hola mundo
         run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
       - name: Run script
