@@ -1,0 +1,18 @@
+name: aprendiendo github actions #Nombre del workflow
+run-name: estoy aprendiendo github actions
+on: [push] #evento que lo activará
+jobs: #Definición de los jobs
+  hola-mundo: #Nombre del job
+    runs-on: ubuntu-latest #Maquina en la que correrá
+    steps: #Lista de steps del job hola-mundo
+      - name: Checkout #Nombre del step
+        id: ip #identificador usable dentro del job para otros steps
+        uses: actions/checkout@v3
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+      - name: Definir variable #Segundo step de nombre Hola mundo
+        run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
+      - name: Run script
+        run: node hola-mundo.js
