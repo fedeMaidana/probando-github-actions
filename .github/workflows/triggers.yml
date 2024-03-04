@@ -1,0 +1,13 @@
+name: Triggers
+run-name: Probando los triggers
+on:
+  push:
+    branches: ['main', 'aprendiendo-**']
+    paths: ['**.yml']
+  pull_request:
+    types: [opened, labeled]
+    branches: ['main', 'aprendiendo-**']
+    paths: ['**.yml']
+  schedule:
+    - cron: '59 23 * * SUN'
+  
