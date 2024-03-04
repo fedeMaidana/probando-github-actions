@@ -1,0 +1,31 @@
+name: Expresiones
+run-name: Probando las expresiones
+on:
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: nombre de la persona
+        default: Federico
+        type: string
+        required: true
+      peso:
+        description: peso de la persona
+        type: number
+        required: true
+      altura:
+        description: altura de la persona
+        type: number
+        required: true
+      print_json:
+        description: imprimir a json
+        type: boolean
+        default: true
+jobs:
+  Es-alto:
+    runs-on: ubuntu-latest
+    name: saber si x persona es alta
+    if: ${inputs.altura >= 1.80}
+    steps:
+      - name: imprimir si es alto
+        run: echo "Eres alto ${{inputs.nombre}} y mides ${inputs.altura} metros"
+      
