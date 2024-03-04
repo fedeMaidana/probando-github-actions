@@ -7,7 +7,7 @@ jobs: #Definición de los jobs
     steps: #Lista de steps del job hola-mundo
       - name: Checkout #Nombre del step
         id: ip #identificador usable dentro del job para otros steps
-        uses: actions/checkout@latest
+        uses: actions/checkout@v3
       - name: Definir variable #Segundo step de nombre Hola mundo
         run: echo "USERNAME=${{github.actor}}" >> $GITHUB_ENV
       - name: Run script
